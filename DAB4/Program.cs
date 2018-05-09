@@ -13,6 +13,11 @@ namespace DAB4
             //hej
 
             int test;
+
+            Console.WriteLine("Testing Commit");
+
+            Console.ReadLine();
+
         }
     }
 }
