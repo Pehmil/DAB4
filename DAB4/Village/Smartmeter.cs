@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAB4
 {
-    class Program
+    class Smartmeter
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }
