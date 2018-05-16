@@ -44,5 +44,9 @@ namespace DAB4.Village
             Console.WriteLine(info);
         }
 
+        public void CalcTrades()
+        {
+            //Figure out who sells to who, and who buys from who in the DB
+        }
     }
 }
