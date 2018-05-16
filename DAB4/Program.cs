@@ -10,9 +10,6 @@ namespace DAB4
     {
         static void Main(string[] args)
         {
-            //hej
-
-            int test;
         }
     }
 }
