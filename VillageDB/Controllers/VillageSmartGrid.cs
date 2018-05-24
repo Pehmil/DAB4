@@ -4,21 +4,28 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
+using VillageDB.Models;
 
 namespace VillageDB.Controllers
 {
-    public class ValuesController : ApiController
+    public class VillageSmartGrid : ApiController
     {
+        private VillageSmartGridContext db = new VillageSmartGridContext();
+
         // GET api/values
-        public IEnumerable<string> Get()
+        public IQueryable<Models.VillageSmartGrid> GetVillageSmartGrid()
         {
-            return new string[] { "value1", "value2" };
+            return db.VillageSmartGrid;
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [ResponseType(typeof(Models.VillageSmartGrid))]
+        public IHttpActionResult GetVillageSmartGrid(int a)
         {
-            return "value";
+            Models.VillageSmartGrid villageSmartGrid = a.villageSmartGrid.Find(a);
+
+            return 0; 
         }
 
         // POST api/values
