@@ -14,10 +14,25 @@ namespace VillageDB.Controllers
     public class VillageSmartGrid : ApiController
     {
         private VillageSmartGridContext db = new VillageSmartGridContext();
-
+        /// <summary>
+        /// Returns bool value if the grid is there. 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         private bool GridInfo(int a)
         {
             return db.VillageSmartGrid.Count(b => b.Id == a) > 0;
+        }
+
+        protected override void Dispose(bool a)
+        {
+            if (a)
+            {
+                db.Dispose();
+            }
+
+            base.Dispose(a);
+
         }
 
 
@@ -107,9 +122,20 @@ namespace VillageDB.Controllers
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public IHttpActionResult DeleteVillageSmartGrid(int id)
         {
+            Models.VillageSmartGrid villageSmartGrid = db.VillageSmartGrid.Find(id);
+            if (villageSmartGrid == null)
+            {
+                return NotFound();
+            }
+
+            db.VillageSmartGrid.Remove(villageSmartGrid);
+            db.SaveChanges();
+
+            return Ok(villageSmartGrid);
         }
+
 
 
     }
