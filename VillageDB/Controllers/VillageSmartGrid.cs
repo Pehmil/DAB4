@@ -23,7 +23,10 @@ namespace VillageDB.Controllers
         {
             return db.VillageSmartGrid.Count(b => b.Id == a) > 0;
         }
-
+        /// <summary>
+        /// Dispose function, used to dispose things, hæh.
+        /// </summary>
+        /// <param name="a"></param>
         protected override void Dispose(bool a)
         {
             if (a)
@@ -135,8 +138,6 @@ namespace VillageDB.Controllers
 
             return Ok(villageSmartGrid);
         }
-
-
 
     }
 }
