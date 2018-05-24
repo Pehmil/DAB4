@@ -21,11 +21,15 @@ namespace VillageDB.Controllers
 
         // GET api/values/5
         [ResponseType(typeof(Models.VillageSmartGrid))]
-        public IHttpActionResult GetVillageSmartGrid(int a)
+        public IHttpActionResult GetVillageSmartGrid(int id)
         {
-            Models.VillageSmartGrid villageSmartGrid = a.villageSmartGrid.Find(a);
+            Models.VillageSmartGrid villageSmartGrid = db.VillageSmartGrid.Find(id);
+            if (villageSmartGrid == null)
+            {
+                return NotFound();
+            }
 
-            return 0; 
+            return Ok(villageSmartGrid);
         }
 
         // POST api/values
