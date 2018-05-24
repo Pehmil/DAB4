@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -28,9 +29,9 @@ namespace VillageDB.Controllers
 
         // GET api/values/5
         [ResponseType(typeof(Models.VillageSmartGrid))]
-        public IHttpActionResult GetVillageSmartGrid(int a)
+        public IHttpActionResult GetVillageSmartGrid(int id)
         {
-            Models.VillageSmartGrid villageSmartGrid = db.VillageSmartGrid.Find(a);
+            Models.VillageSmartGrid villageSmartGrid = db.VillageSmartGrid.Find(id);
             if (villageSmartGrid == null)
             {
                 return NotFound();
@@ -70,8 +71,39 @@ namespace VillageDB.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutVillgeSmartGrid(int id, Models.VillageSmartGrid villageSmartGrid)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != villageSmartGrid.Id)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(villageSmartGrid).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!GridInfo(id))
+                {
+                    return NotFound();
+                }
+
+                else
+                {
+                    throw;
+                }
+            }
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         // DELETE api/values/5
