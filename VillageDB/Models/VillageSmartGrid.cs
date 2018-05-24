@@ -17,7 +17,7 @@ namespace VillageDB.Models
         /// Id of the element
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Type of the element
