@@ -42,12 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IProsumer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Prosumers\Business.cs" />
-    <Compile Include="Prosumers\NationalSmartGrid.cs" />
-    <Compile Include="Prosumers\Private.cs" />
+    <Compile Include="Prosumers\Prosumer.cs" />
     <Compile Include="Village\PDSGT.cs" />
     <Compile Include="Village\Smartmeter.cs" />
     <Compile Include="Village\VillageSmartGrid.cs" />

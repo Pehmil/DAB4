@@ -8,7 +8,6 @@ namespace DAB4.Village
 {
     class VillageSmartGrid
     {
-        private List<Smartmeter> _vsgList = new List<Smartmeter>();
-        //Skal implementeres som REST API
+        public List<Smartmeter> _vsgList = new List<Smartmeter>();
     }
 }
