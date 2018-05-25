@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAB4
 {
-    class Smartmeter
+    public class Smartmeter
     {
 
     }
