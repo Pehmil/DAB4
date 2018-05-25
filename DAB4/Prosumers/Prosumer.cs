@@ -18,9 +18,6 @@ namespace DAB4.Prosumers
         public int ConsumedkW { get; set; }
         public string Type { get; set; }
 
-        public void CalcPower()
-        {
-
-        }
+        Smartmeter sm = new Smartmeter();
     }
 }

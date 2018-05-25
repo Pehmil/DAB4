@@ -8,6 +8,6 @@ namespace DAB4.Village
 {
     class VillageSmartGrid
     {
-        private List<Smartmeter> _vsgList = new List<Smartmeter>();
+        public List<Smartmeter> _vsgList = new List<Smartmeter>();
     }
 }
