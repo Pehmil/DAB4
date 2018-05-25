@@ -12,31 +12,33 @@ namespace DAB4
         static void Main(string[] args)
         {
 
-        //Setup for prosumers 
+        // set up prosumers
         void SetupProsumers()
         {
             Random rnd = new Random();
             for (int i = 0; i <33; i++)
             {
-                Private.Id = "private" + i;
-                Private.ProducedkW = rand.Next(0, 100);
-                Private.ConsumedkW = rand.Next(0, 100);
+                Prosumer privateProsumer = new Prosumer(i, "Private");
+                privateProsumer.ConsumedkW = rnd.Next(0, 100);
+                privateProsumer.ProducedkW = rnd.Next(0, 100);
             }
 
-            for (int j = 0; j<12; j++)
+            for (int j = 33; j<45; j++)
             {
-                Business.Id = "business" + j;
-                Business.ProducedkW = rand.Next(0, 100);
-                Business.ConsumedkW = rand.Next(0, 100);
-            }                   
+                Prosumer businessProsumer = new Prosumer(j, "Business");
+                businessProsumer.ConsumedkW = rnd.Next(0, 500);
+                businessProsumer.ProducedkW = rnd.Next(0, 500);
 
-            //NSG doesn't consumed anything, produces 100.000 kW pr. day?
-            NationalSmartGrid.Id = "NSG";
-            NationalSmartGrid.ProducedkW = 100000;
-            NationalSmartGrid.ConsumedkW = 0;
+            }
 
-            //Add to DB
+            Prosumer nationalProsumer = new Prosumer(45, "National power grid");
+            //should be whatever is leftover from the prosumers
+            nationalProsumer.ConsumedkW = 0;
+
+            //should be whatever the prosumers need
+            nationalProsumer.ProducedkW = 0;
         }        
+
         }
     }
 }

@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAB4.Interfaces;
 
 namespace DAB4.Prosumers
 {
-    class NationalSmartGrid : IProsumer
+    class Prosumer
     {
-        public string Id { get; set; }
+        public Prosumer(int proId, string proType)
+        {
+            Type = proType;
+            Id = proId;
+        }
+        public int Id { get; set; }
         public int ProducedkW { get; set; }
         public int ConsumedkW { get; set; }
+        public string Type { get; set; }
 
         public void CalcPower()
         {
