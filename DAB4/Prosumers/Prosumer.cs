@@ -17,6 +17,7 @@ namespace DAB4.Prosumers
         public int ProducedkW { get; set; }
         public int ConsumedkW { get; set; }
         public string Type { get; set; }
+        public int DifferencekW { get; set; }
 
         Smartmeter sm = new Smartmeter();
     }
